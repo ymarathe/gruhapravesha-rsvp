@@ -70,6 +70,8 @@
 }
 
 #welcome-screen .welcome-content h1 {
+  position: relative;
+  isolation: isolate;
   width: 100%;
   max-width: 100%;
   font-size: clamp(2.5rem, 4.2vw, 4rem);
@@ -77,6 +79,27 @@
   letter-spacing: .015em;
   overflow-wrap: normal;
   white-space: normal;
+  text-shadow:
+    0 1px 0 rgba(255, 254, 248, .95),
+    0 0 10px rgba(248, 245, 233, .9);
+}
+
+#invitation-screen h1 {
+  position: relative;
+  isolation: isolate;
+  text-shadow:
+    0 1px 0 rgba(255, 254, 248, .95),
+    0 0 10px rgba(248, 245, 233, .9);
+}
+
+#invitation-screen .invitation-intro,
+#invitation-screen .invitation-message,
+#invitation-screen .invitation-copy,
+#invitation-screen .invitation-lead,
+#invitation-screen .invitation-header > p:last-of-type {
+  text-shadow:
+    0 1px 0 rgba(255, 254, 248, .95),
+    0 0 8px rgba(248, 245, 233, .92);
 }
 
 /* Detailed invitation */
@@ -143,6 +166,8 @@
 }
 
 .theme-botanical .event-header h1 {
+  position: relative;
+  isolation: isolate;
   width: 100%;
   max-width: 100%;
   margin-inline: auto;
@@ -150,6 +175,9 @@
   line-height: 1;
   letter-spacing: .015em;
   overflow-wrap: normal;
+  text-shadow:
+    0 1px 0 rgba(255, 254, 248, .95),
+    0 0 10px rgba(248, 245, 233, .9);
 }
 
 .theme-botanical .event-header .event-date {
