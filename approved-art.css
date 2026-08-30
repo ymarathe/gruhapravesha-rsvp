@@ -169,11 +169,12 @@
   }
 
   #welcome-screen .welcome-content h1 {
-    font-size: clamp(2rem, 10vw, 3.15rem);
+    font-size: clamp(2rem, 10vw, 2.65rem);
+    letter-spacing: 0;
   }
 
   #welcome-screen .welcome-content {
-    transform: translate(-8px, -18px) !important;
+    transform: translate(-14px, -18px) !important;
   }
 
   .theme-botanical .event-header {
