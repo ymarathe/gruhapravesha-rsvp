@@ -223,4 +223,61 @@
   .theme-botanical .event-header .event-place {
     font-size: .88rem;
   }
+
+  /* Page 2: keep compressed mobile copy clear of the floral and lamp artwork. */
+  #invitation-screen .invitation-header {
+    padding-inline: 18px;
+  }
+
+  #invitation-screen .invitation-intro,
+  #invitation-screen .invitation-message,
+  #invitation-screen .invitation-copy,
+  #invitation-screen .invitation-lead,
+  #invitation-screen .invitation-header > p:last-of-type {
+    box-sizing: border-box;
+    width: min(100%, 360px);
+    margin-inline: auto;
+    padding: 10px 14px;
+    background: rgba(255, 254, 247, .88);
+    border-radius: 14px;
+  }
+
+  #invitation-screen .event-details,
+  #invitation-screen .event-facts,
+  #invitation-screen .details-card,
+  #invitation-screen .invitation-details {
+    box-sizing: border-box;
+    width: auto;
+    margin-inline: 18px;
+    background: rgba(255, 254, 247, .97);
+  }
+
+  #invitation-screen .schedule-card,
+  #invitation-screen .schedule-panel,
+  #invitation-screen .ceremony-schedule,
+  #invitation-screen .schedule {
+    box-sizing: border-box;
+    width: auto;
+    margin: 24px 18px 0;
+    padding: 20px 18px;
+    background: rgba(255, 254, 247, .96);
+    border: 1px solid rgba(178, 132, 42, .24);
+    border-radius: 16px;
+    box-shadow: 0 12px 28px rgba(53, 68, 43, .09);
+  }
+
+  #invitation-screen .schedule-card h2,
+  #invitation-screen .schedule-panel h2,
+  #invitation-screen .ceremony-schedule h2,
+  #invitation-screen .schedule h2 {
+    margin-top: 0;
+    font-size: clamp(1.45rem, 7vw, 1.8rem);
+    line-height: 1.15;
+  }
+
+  #invitation-screen .schedule-row {
+    grid-template-columns: 76px minmax(0, 1fr);
+    gap: 12px;
+    align-items: start;
+  }
 }
