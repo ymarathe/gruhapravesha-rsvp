@@ -63,6 +63,80 @@ input[type="radio"] {
   .choice-card { min-height: 78px; padding: 16px; }
 }
 
+/* RSVP banner: keep the botanical art in document flow. This prevents the
+   artwork from cropping or colliding with the title at every viewport size. */
+.theme-botanical .event-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "leaves jasmine"
+    "content content";
+  column-gap: 24px;
+  min-height: 0;
+  overflow: visible;
+  padding: 28px 40px 48px;
+}
+
+.theme-botanical .event-header .rsvp-banner-leaves,
+.theme-botanical .event-header .rsvp-banner-jasmine {
+  position: static;
+  inset: auto;
+  display: block;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: center;
+  opacity: 1;
+  transform: none;
+}
+
+.theme-botanical .event-header .rsvp-banner-leaves {
+  grid-area: leaves;
+  justify-self: start;
+  width: 126px;
+  height: 126px;
+}
+
+.theme-botanical .event-header .rsvp-banner-jasmine {
+  grid-area: jasmine;
+  justify-self: end;
+  width: 96px;
+  height: 136px;
+}
+
+.theme-botanical .event-header .rsvp-banner-content {
+  grid-area: content;
+  width: 100%;
+  min-width: 0;
+}
+
+.theme-botanical .event-header h1 {
+  max-width: 100%;
+  font-size: clamp(2.5rem, 7vw, 4rem);
+  overflow-wrap: normal;
+}
+
+@media (max-width: 620px) {
+  .theme-botanical .event-header {
+    column-gap: 14px;
+    margin-top: 28px;
+    padding: 20px 20px 34px;
+  }
+
+  .theme-botanical .event-header .rsvp-banner-leaves {
+    width: 88px;
+    height: 88px;
+  }
+
+  .theme-botanical .event-header .rsvp-banner-jasmine {
+    width: 66px;
+    height: 94px;
+  }
+
+  .theme-botanical .event-header h1 {
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+}
+
 /* Keep the complete welcome composition inside every viewport. */
 .welcome-content { width: min(100%, 720px); }
 .welcome-content h1 {
@@ -112,8 +186,8 @@ input[type="radio"] {
   border: 1px solid rgba(178,138,53,.5);
   border-radius: 28px;
   background:
-    radial-gradient(circle at center, rgba(255,254,247,.98) 0 36%, rgba(255,254,247,.82) 58%, rgba(244,245,233,.82) 100%),
-    url("assets/botanical-watermark.svg?v=20260830-6") center / 88% auto no-repeat;
+    url("assets/botanical-watermark.svg?v=20260830-7") center / 84% auto no-repeat,
+    radial-gradient(circle at center, #fffef7 0 36%, #fafaf0 60%, #f0f3e8 100%);
   box-shadow: 0 28px 80px rgba(53,68,43,.14);
 }
 
@@ -171,28 +245,28 @@ input[type="radio"] {
   pointer-events: none;
 }
 .welcome-card .welcome-leaves-primary {
-  top: -5%;
-  left: -3%;
-  width: 47%;
+  top: 30px;
+  left: 30px;
+  width: 34%;
   opacity: .94;
 }
 .welcome-leaves-secondary {
-  top: -7%;
-  right: -2%;
-  width: 38%;
+  top: 28px;
+  right: 30px;
+  width: 28%;
   opacity: .66;
   transform: scaleX(-1) rotate(-8deg);
 }
 .welcome-card .welcome-jasmine-primary {
-  right: 2%;
-  bottom: -2%;
-  width: 25%;
+  right: 32px;
+  bottom: 26px;
+  width: 20%;
   opacity: .94;
 }
 .welcome-jasmine-secondary {
-  bottom: 2%;
-  left: 3%;
-  width: 18%;
+  bottom: 30px;
+  left: 34px;
+  width: 15%;
   opacity: .68;
   transform: scaleX(-1) rotate(-8deg);
 }
@@ -209,13 +283,65 @@ input[type="radio"] {
   .welcome-card::after { inset: 18px; }
   .welcome-card .welcome-content { padding: 24px 0; }
   .welcome-card .welcome-content h1 { font-size: 8.4vw; }
-  .welcome-card .welcome-leaves-primary { top: -3%; left: -2%; width: 45%; }
-  .welcome-leaves-secondary { top: -4%; right: -2%; width: 35%; }
-  .welcome-card .welcome-jasmine-primary { right: 1%; bottom: -1%; width: 24%; }
-  .welcome-jasmine-secondary { bottom: 2%; left: 3%; width: 17%; }
+  .welcome-card .welcome-leaves-primary { top: 14px; left: 14px; width: 34%; }
+  .welcome-leaves-secondary { top: 14px; right: 14px; width: 27%; }
+  .welcome-card .welcome-jasmine-primary { right: 15px; bottom: 14px; width: 20%; }
+  .welcome-jasmine-secondary { bottom: 15px; left: 16px; width: 14%; }
 }
 
 @media (max-height: 520px) and (orientation: landscape) {
   .welcome-screen { display: block; min-height: 0; padding: 16px 0; }
   .welcome-card { width: min(76vh, 560px); margin: 0 auto; }
+}
+
+/* Full invitation screen: every ornament remains inside the card safe area. */
+.invitation-card {
+  background:
+    url("assets/botanical-watermark.svg?v=20260830-8") center 170px / 76% auto no-repeat,
+    linear-gradient(180deg, #fffef8 0%, #fbfbf2 62%, #f2f5ea 100%);
+}
+.invitation-card > * { position: relative; z-index: 2; }
+.invitation-card .invitation-leaves-primary,
+.invitation-leaves-secondary,
+.invitation-jasmine-primary,
+.invitation-jasmine-secondary {
+  position: absolute;
+  z-index: 1;
+  display: block;
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
+}
+.invitation-card .invitation-leaves-primary {
+  top: 28px;
+  left: 28px;
+  width: 19%;
+  opacity: .82;
+}
+.invitation-leaves-secondary {
+  top: 26px;
+  right: 28px;
+  width: 16%;
+  opacity: .58;
+  transform: scaleX(-1) rotate(-7deg);
+}
+.invitation-jasmine-primary {
+  right: 30px;
+  bottom: 30px;
+  width: 16%;
+  opacity: .82;
+}
+.invitation-jasmine-secondary {
+  bottom: 32px;
+  left: 30px;
+  width: 12%;
+  opacity: .58;
+  transform: scaleX(-1) rotate(-7deg);
+}
+
+@media (max-width: 560px) {
+  .invitation-card .invitation-leaves-primary { top: 16px; left: 16px; width: 20%; }
+  .invitation-leaves-secondary { top: 16px; right: 16px; width: 16%; }
+  .invitation-jasmine-primary { right: 17px; bottom: 17px; width: 17%; }
+  .invitation-jasmine-secondary { bottom: 18px; left: 17px; width: 12%; }
 }
