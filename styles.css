@@ -1,0 +1,147 @@
+:root {
+  /* Theme tokens: replace these when the final invitation style is selected. */
+  --canvas: #f5f0e7;
+  --surface: rgba(255, 253, 248, 0.94);
+  --ink: #25231f;
+  --muted: #706b62;
+  --accent: #9d5538;
+  --accent-dark: #773a25;
+  --gold: #ae842f;
+  --line: #d9cfbd;
+  --success: #48664d;
+  --danger: #a2382a;
+  --shadow: 0 24px 70px rgba(72, 52, 29, 0.12);
+  --radius: 22px;
+  --heading: "Libre Baskerville", Georgia, serif;
+  --body: "DM Sans", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 15% 10%, rgba(174,132,47,.08), transparent 30rem),
+    var(--canvas);
+  font-family: var(--body);
+  line-height: 1.5;
+}
+button, input, textarea { font: inherit; }
+button, .choice-card, .segmented label { cursor: pointer; }
+
+.page-shell { width: min(100% - 32px, 760px); margin: 0 auto; }
+.event-header { padding: 72px 16px 42px; text-align: center; }
+.eyebrow {
+  margin: 0 0 14px;
+  color: var(--accent);
+  font-size: .76rem;
+  font-weight: 600;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+.event-header h1 {
+  margin: 0;
+  color: var(--accent-dark);
+  font: 400 clamp(2.4rem, 8vw, 4.25rem)/1.08 var(--heading);
+}
+.event-date { margin: 26px 0 4px; font-weight: 600; }
+.event-place { margin: 0; color: var(--muted); }
+
+.rsvp-card {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(24px, 5vw, 48px);
+  border: 1px solid rgba(174,132,47,.34);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+.rsvp-card::before {
+  position: absolute;
+  inset: 11px;
+  border: 1px solid rgba(174,132,47,.13);
+  border-radius: calc(var(--radius) - 7px);
+  content: "";
+  pointer-events: none;
+}
+.card-heading, form, .confirmation { position: relative; }
+.card-heading h2, .section-copy h3, .confirmation h2 {
+  margin: 0;
+  font: 400 clamp(1.45rem, 4vw, 2rem)/1.3 var(--heading);
+}
+.card-heading > p:last-child, .section-copy p { margin: 8px 0 0; color: var(--muted); }
+.step-label { margin: 0 0 8px; color: var(--gold); font-size: .78rem; font-weight: 600; text-transform: uppercase; letter-spacing: .12em; }
+.progress { height: 3px; margin: 28px 0 34px; overflow: hidden; border-radius: 3px; background: #e9e1d4; }
+.progress span { display: block; width: 25%; height: 100%; background: var(--accent); transition: width .25s ease; }
+
+.form-step { animation: reveal .25s ease; }
+@keyframes reveal { from { opacity: 0; transform: translateY(6px); } }
+fieldset { margin: 26px 0; padding: 0; border: 0; }
+legend, .field > span { display: block; margin-bottom: 9px; font-weight: 600; }
+legend b, .field b { color: var(--accent); }
+.choice-card {
+  display: flex;
+  gap: 13px;
+  align-items: flex-start;
+  margin-top: 12px;
+  padding: 17px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  transition: border-color .2s, background .2s;
+}
+.choice-card:has(input:checked) { border-color: var(--accent); background: rgba(157,85,56,.055); }
+.choice-card input { margin-top: 4px; accent-color: var(--accent); }
+.choice-card strong, .choice-card small { display: block; }
+.choice-card small { margin-top: 2px; color: var(--muted); }
+.two-column, .count-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.field { display: block; margin: 22px 0; }
+input, textarea {
+  width: 100%;
+  padding: 13px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--ink);
+  background: #fffefa;
+  outline: none;
+}
+input:focus, textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(157,85,56,.11); }
+.field-note { margin: -10px 0 0; color: var(--muted); font-size: .86rem; }
+.section-copy { margin-bottom: 25px; }
+.count-field { display: grid; gap: 8px; font-weight: 600; }
+.count-field input { font-size: 1.15rem; }
+.meal-card { margin: 18px 0; padding: 20px; border: 1px solid var(--line); border-radius: 16px; }
+.meal-card h3, .meal-card p { margin: 0; }
+.meal-card p { color: var(--muted); }
+.segmented { display: flex; width: fit-content; margin: 16px 0; padding: 3px; border: 1px solid var(--line); border-radius: 999px; background: #f4eee4; }
+.segmented input { position: absolute; opacity: 0; pointer-events: none; }
+.segmented span { display: block; min-width: 70px; padding: 7px 16px; border-radius: 999px; text-align: center; }
+.segmented input:checked + span { color: white; background: var(--accent); }
+.review-summary { margin: 20px 0; overflow: hidden; border: 1px solid var(--line); border-radius: 16px; }
+.review-row { display: flex; justify-content: space-between; gap: 20px; padding: 14px 17px; border-bottom: 1px solid var(--line); }
+.review-row:last-child { border-bottom: 0; }
+.review-row span:first-child { color: var(--muted); }
+.review-row strong { text-align: right; }
+.form-error { margin-top: 20px; padding: 12px 14px; border-radius: 10px; color: var(--danger); background: #fcebe8; }
+.form-actions { display: flex; justify-content: flex-end; gap: 12px; margin-top: 30px; }
+.button { display: inline-flex; justify-content: center; align-items: center; min-height: 46px; padding: 10px 22px; border: 1px solid transparent; border-radius: 999px; font-weight: 600; text-decoration: none; }
+.button-primary { color: #fff; background: var(--accent); }
+.button-primary:hover { background: var(--accent-dark); }
+.button-secondary { color: var(--ink); border-color: var(--line); background: transparent; }
+.confirmation { padding: 24px 0 8px; text-align: center; }
+.confirmation-mark { display: grid; place-items: center; width: 50px; height: 50px; margin: 0 auto 20px; border-radius: 50%; color: white; background: var(--success); font-size: 1.5rem; }
+.confirmation-summary { margin: 24px auto; max-width: 480px; }
+.confirmation-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 28px; }
+footer { padding: 28px 12px 56px; color: var(--muted); font-size: .84rem; text-align: center; }
+[hidden] { display: none !important; }
+
+@media (max-width: 560px) {
+  .page-shell { width: min(100% - 20px, 760px); }
+  .event-header { padding-top: 48px; }
+  .two-column { grid-template-columns: 1fr; gap: 0; }
+  .rsvp-card { padding: 26px 20px; }
+  .form-actions .button { flex: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
+}

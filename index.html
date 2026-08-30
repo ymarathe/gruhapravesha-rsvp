@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="RSVP for our Gruhapravesha celebration on September 12, 2026.">
+  <title>Gruhapravesha RSVP</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="page-shell">
+    <header class="event-header">
+      <p class="eyebrow">A new home, a new beginning</p>
+      <h1>Gruhapravesha<br>Ceremony</h1>
+      <p class="event-date">Saturday · September 12, 2026</p>
+      <p class="event-place">10637 Indigo Broom Loop · Austin, Texas</p>
+    </header>
+
+    <section class="rsvp-card" aria-labelledby="form-title">
+      <div class="card-heading">
+        <p class="step-label" id="step-label">Step 1 of 4</p>
+        <h2 id="form-title">Tell us about your household</h2>
+        <p id="form-intro">Please provide one response for your household.</p>
+      </div>
+
+      <div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
+
+      <form id="rsvp-form" novalidate>
+        <section class="form-step" data-step="1">
+          <label class="field">
+            <span>Household or family name <b aria-hidden="true">*</b></span>
+            <input name="householdName" autocomplete="name" required maxlength="100" placeholder="e.g., The Rao Family">
+          </label>
+
+          <fieldset>
+            <legend>Will you be joining us? <b aria-hidden="true">*</b></legend>
+            <label class="choice-card">
+              <input type="radio" name="attendance" value="attending" required>
+              <span><strong>Joyfully attending</strong><small>We look forward to celebrating with you.</small></span>
+            </label>
+            <label class="choice-card">
+              <input type="radio" name="attendance" value="declined" required>
+              <span><strong>Regretfully unable to attend</strong><small>You will be with us in spirit.</small></span>
+            </label>
+          </fieldset>
+
+          <div class="two-column">
+            <label class="field">
+              <span>Email</span>
+              <input type="email" name="email" autocomplete="email" maxlength="200" placeholder="you@example.com">
+            </label>
+            <label class="field">
+              <span>Mobile number</span>
+              <input type="tel" name="phone" autocomplete="tel" maxlength="30" placeholder="(512) 555-0123">
+            </label>
+          </div>
+          <p class="field-note">Please provide an email or mobile number so we can contact you if event details change.</p>
+        </section>
+
+        <section class="form-step" data-step="2" hidden>
+          <div class="section-copy">
+            <h3>Ceremony attendance</h3>
+            <p>Tell us how many members of your household will attend the ceremonies.</p>
+          </div>
+          <div class="count-grid">
+            <label class="count-field"><span>Adults</span><input type="number" name="ceremonyAdults" min="0" max="20" value="1" inputmode="numeric"></label>
+            <label class="count-field"><span>Children</span><input type="number" name="ceremonyChildren" min="0" max="20" value="0" inputmode="numeric"></label>
+          </div>
+          <p class="field-note">Ceremonies begin at 7:00 AM. Gruhapravesha Muhurtham is at 8:42 AM.</p>
+        </section>
+
+        <section class="form-step" data-step="3" hidden>
+          <div class="section-copy">
+            <h3>Meal reservations</h3>
+            <p>Please reserve breakfast and lunch separately so we can plan accurately.</p>
+          </div>
+
+          <div class="meal-card">
+            <div>
+              <h3>Breakfast</h3>
+              <p>Will your household join us for breakfast?</p>
+            </div>
+            <div class="segmented" role="radiogroup" aria-label="Breakfast attendance">
+              <label><input type="radio" name="breakfastAttending" value="yes"><span>Yes</span></label>
+              <label><input type="radio" name="breakfastAttending" value="no" checked><span>No</span></label>
+            </div>
+            <div class="count-grid meal-counts" data-meal="breakfast" hidden>
+              <label class="count-field"><span>Adults</span><input type="number" name="breakfastAdults" min="0" max="20" value="0" inputmode="numeric"></label>
+              <label class="count-field"><span>Children</span><input type="number" name="breakfastChildren" min="0" max="20" value="0" inputmode="numeric"></label>
+            </div>
+          </div>
+
+          <div class="meal-card">
+            <div>
+              <h3>Lunch</h3>
+              <p>Will your household stay for lunch?</p>
+            </div>
+            <div class="segmented" role="radiogroup" aria-label="Lunch attendance">
+              <label><input type="radio" name="lunchAttending" value="yes"><span>Yes</span></label>
+              <label><input type="radio" name="lunchAttending" value="no" checked><span>No</span></label>
+            </div>
+            <div class="count-grid meal-counts" data-meal="lunch" hidden>
+              <label class="count-field"><span>Adults</span><input type="number" name="lunchAdults" min="0" max="20" value="0" inputmode="numeric"></label>
+              <label class="count-field"><span>Children</span><input type="number" name="lunchChildren" min="0" max="20" value="0" inputmode="numeric"></label>
+            </div>
+          </div>
+
+          <label class="field">
+            <span>Dietary restrictions or allergies</span>
+            <textarea name="dietaryNotes" maxlength="500" rows="3" placeholder="Please tell us who the note applies to."></textarea>
+          </label>
+        </section>
+
+        <section class="form-step" data-step="4" hidden>
+          <div class="section-copy">
+            <h3>Review your RSVP</h3>
+            <p>Please check the details below before submitting.</p>
+          </div>
+          <div id="review-summary" class="review-summary"></div>
+          <label class="field">
+            <span>Message to the hosts <small>(optional)</small></span>
+            <textarea name="message" maxlength="500" rows="3" placeholder="Share a note or blessing..."></textarea>
+          </label>
+        </section>
+
+        <div id="form-error" class="form-error" role="alert" hidden></div>
+        <div class="form-actions">
+          <button type="button" class="button button-secondary" id="back-button" hidden>Back</button>
+          <button type="button" class="button button-primary" id="next-button">Continue</button>
+          <button type="submit" class="button button-primary" id="submit-button" hidden>Submit RSVP</button>
+        </div>
+      </form>
+
+      <section id="confirmation" class="confirmation" hidden aria-live="polite">
+        <span class="confirmation-mark" aria-hidden="true">✓</span>
+        <p class="eyebrow">RSVP received</p>
+        <h2 id="confirmation-title">Thank you!</h2>
+        <div id="confirmation-summary"></div>
+        <div class="confirmation-actions">
+          <a class="button button-primary" href="https://maps.google.com/?q=10637+Indigo+Broom+Loop+Austin+TX+78733" target="_blank" rel="noopener">Open in Maps</a>
+          <button class="button button-secondary" id="edit-button" type="button">Edit RSVP</button>
+        </div>
+      </section>
+    </section>
+
+    <footer>
+      <p>Your response is private and will only be visible to the hosts.</p>
+    </footer>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
