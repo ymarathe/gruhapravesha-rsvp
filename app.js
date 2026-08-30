@@ -148,6 +148,15 @@ async function saveRsvp(data) {
   return { editToken: token };
 }
 
+async function loadRemoteEdit() {
+  const config = window.RSVP_CONFIG || { mode: "local" };
+  if (!currentToken || config.mode !== "supabase" || !config.functionUrl) return;
+  const response = await fetch(`${config.functionUrl}?token=${encodeURIComponent(currentToken)}`);
+  if (!response.ok) throw new Error("This edit link is invalid or has expired.");
+  const record = await response.json();
+  hydrateForm(record);
+}
+
 function renderConfirmation(data) {
   form.hidden = true;
   document.querySelector(".card-heading").hidden = true;
@@ -169,6 +178,10 @@ function loadLocalEdit() {
   const records = JSON.parse(localStorage.getItem("gruhapraveshaRsvps") || "[]");
   const record = records.find((item) => item.editToken === currentToken);
   if (!record) return;
+  hydrateForm(record);
+}
+
+function hydrateForm(record) {
   Object.entries(record).forEach(([key, value]) => {
     const input = form.elements[key];
     if (!input) return;
@@ -220,5 +233,14 @@ document.querySelector("#edit-button").addEventListener("click", () => {
   renderStep();
 });
 
-loadLocalEdit();
-renderStep();
+async function boot() {
+  try {
+    if (window.RSVP_CONFIG?.mode === "supabase") await loadRemoteEdit();
+    else loadLocalEdit();
+  } catch (error) {
+    showError(error.message || "We could not load this RSVP.");
+  }
+  renderStep();
+}
+
+boot();

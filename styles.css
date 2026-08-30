@@ -28,6 +28,7 @@ body {
 }
 button, input, textarea { font: inherit; }
 button, .choice-card, .segmented label { cursor: pointer; }
+.honeypot { position: absolute !important; left: -10000px !important; width: 1px !important; height: 1px !important; overflow: hidden !important; }
 
 .page-shell { width: min(100% - 32px, 760px); margin: 0 auto; }
 .event-header { padding: 72px 16px 42px; text-align: center; }

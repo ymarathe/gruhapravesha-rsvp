@@ -32,3 +32,14 @@ alter table public.rsvps enable row level security;
 
 create index rsvps_attendance_idx on public.rsvps (attendance_status);
 create index rsvps_submitted_at_idx on public.rsvps (submitted_at desc);
+
+create table public.organizers (
+  user_id uuid primary key references auth.users(id) on delete cascade,
+  created_at timestamptz not null default now()
+);
+
+alter table public.organizers enable row level security;
+
+-- After creating the organizer in Authentication > Users, authorize that account once:
+-- insert into public.organizers (user_id) values ('THE_AUTH_USER_UUID');
+-- There are deliberately no browser-readable policies on organizers or rsvps.

@@ -11,11 +11,25 @@
 </head>
 <body>
   <main class="admin-shell">
+    <section id="login-panel" class="rsvp-card" hidden>
+      <p class="eyebrow">Private organizer access</p>
+      <h1>Sign in</h1>
+      <p>Use the organizer account configured in Supabase.</p>
+      <form id="login-form">
+        <label class="field"><span>Email</span><input type="email" name="email" autocomplete="email" required></label>
+        <label class="field"><span>Password</span><input type="password" name="password" autocomplete="current-password" required></label>
+        <div id="login-error" class="form-error" role="alert" hidden></div>
+        <button class="button button-primary" type="submit">Sign in</button>
+      </form>
+    </section>
+    <section id="dashboard">
     <div class="admin-head"><div><p class="eyebrow">Organizer view</p><h1>RSVP Overview</h1></div><button class="button button-secondary" id="export">Export CSV</button></div>
-    <p class="prototype-note"><strong>Prototype:</strong> this page reads responses saved in this browser. Production access will require organizer authentication.</p>
+    <p class="prototype-note" id="mode-note"><strong>Prototype:</strong> this page reads responses saved in this browser.</p>
     <section class="stats" id="stats"></section>
     <div class="table-wrap"><table><thead><tr><th>Household</th><th>Status</th><th>Ceremony</th><th>Breakfast</th><th>Lunch</th><th>Dietary notes</th></tr></thead><tbody id="responses"></tbody></table></div>
+    </section>
   </main>
+  <script src="config.js"></script>
   <script src="admin.js"></script>
 </body>
 </html>

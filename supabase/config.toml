@@ -1,0 +1,7 @@
+project_id = "replace-with-your-project-ref"
+
+[functions.rsvp]
+verify_jwt = false
+
+[functions.admin-rsvps]
+verify_jwt = false
