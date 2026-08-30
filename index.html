@@ -9,16 +9,63 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=20260830-3">
 </head>
 <body class="theme-botanical">
   <main class="page-shell">
+    <section id="welcome-screen" class="welcome-screen" aria-labelledby="welcome-title">
+      <img class="welcome-leaves" src="assets/banana-leaves.svg?v=20260830-3" width="300" height="300" alt="" aria-hidden="true">
+      <img class="welcome-jasmine" src="assets/jasmine-sprig.svg?v=20260830-3" width="180" height="254" alt="" aria-hidden="true">
+      <div class="welcome-content">
+        <p class="eyebrow">With joyful hearts</p>
+        <h1 id="welcome-title">Gruhapravesha</h1>
+        <p class="welcome-subtitle">A celebration of our new home</p>
+        <img class="welcome-lamp" src="assets/brass-lamp.svg?v=20260830-3" width="48" height="64" alt="" aria-hidden="true">
+        <p class="welcome-date">Saturday · September 12, 2026</p>
+        <button class="button button-primary" id="open-invitation" type="button">Open Invitation</button>
+      </div>
+    </section>
+
+    <section id="invitation-screen" class="invitation-screen" hidden aria-labelledby="invitation-title">
+      <div class="invitation-card">
+        <img class="invitation-leaves" src="assets/banana-leaves.svg?v=20260830-3" width="240" height="240" alt="" aria-hidden="true">
+        <p class="eyebrow">A new home, a new beginning</p>
+        <h1 id="invitation-title">Gruhapravesha<br>Ceremony</h1>
+        <img class="invitation-lamp" src="assets/brass-lamp.svg?v=20260830-3" width="40" height="54" alt="" aria-hidden="true">
+        <p class="invitation-copy">Please join us as we open the doors to our new home. Your presence, love, and blessings will make this celebration complete.</p>
+
+        <div class="invitation-details">
+          <div><span>Date</span><strong>Saturday, September 12, 2026</strong></div>
+          <div><span>Muhurtham</span><strong>8:42 AM · Kanya Lagna Pushkaramsha</strong></div>
+          <div><span>Location</span><strong>10637 Indigo Broom Loop<br>Austin, Texas 78733</strong></div>
+        </div>
+
+        <div class="schedule-card">
+          <h2>Ceremony Schedule</h2>
+          <div class="schedule-row"><time>7:00 AM</time><span>Gana Homa and Rakshoghna Homa</span></div>
+          <div class="schedule-row"><time>8:30 AM</time><span>Dwara Pooja</span></div>
+          <div class="schedule-row"><time>8:42 AM</time><span>Gruhapravesha</span></div>
+          <div class="schedule-row"><time>9:00 AM</time><span>Milk Boiling Ceremony</span></div>
+          <div class="schedule-row"><time>Following</time><span>Vastu Pooja and Rudrabhisheka</span></div>
+          <div class="schedule-row"><time>10:30 AM</time><span>Mangala Harathi and Aashirvada</span></div>
+        </div>
+
+        <p class="meal-note"><strong>Breakfast and lunch will be served.</strong><br>Please reserve each meal separately when responding.</p>
+        <div class="invitation-actions">
+          <button class="button button-secondary" id="back-to-welcome" type="button">Back</button>
+          <button class="button button-primary" id="start-rsvp" type="button">RSVP</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="rsvp-screen" hidden>
+      <button class="text-button" id="back-to-invitation" type="button">← Back to invitation</button>
     <header class="event-header">
       <p class="eyebrow">A new home, a new beginning</p>
       <h1>Gruhapravesha<br>Ceremony</h1>
       <div class="lamp-ornament" aria-hidden="true">
         <span></span>
-        <img src="assets/brass-lamp.svg" alt="">
+        <img src="assets/brass-lamp.svg?v=20260830-3" width="40" height="54" alt="">
         <span></span>
       </div>
       <p class="event-date">Saturday · September 12, 2026</p>
@@ -159,9 +206,10 @@
     <footer>
       <p>Your response is private and will only be visible to the hosts.</p>
     </footer>
+    </section>
   </main>
 
-  <script src="config.js"></script>
-  <script src="app.js"></script>
+  <script src="config.js?v=20260830-3"></script>
+  <script src="app.js?v=20260830-3"></script>
 </body>
 </html>

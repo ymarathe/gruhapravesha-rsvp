@@ -5,12 +5,22 @@ const backButton = document.querySelector("#back-button");
 const submitButton = document.querySelector("#submit-button");
 const errorBox = document.querySelector("#form-error");
 const confirmation = document.querySelector("#confirmation");
+const welcomeScreen = document.querySelector("#welcome-screen");
+const invitationScreen = document.querySelector("#invitation-screen");
+const rsvpScreen = document.querySelector("#rsvp-screen");
 const stepLabel = document.querySelector("#step-label");
 const progressBar = document.querySelector("#progress-bar");
 const title = document.querySelector("#form-title");
 const intro = document.querySelector("#form-intro");
 let currentStep = 1;
 let currentToken = new URLSearchParams(location.search).get("edit");
+
+function showScreen(screen) {
+  welcomeScreen.hidden = screen !== "welcome";
+  invitationScreen.hidden = screen !== "invitation";
+  rsvpScreen.hidden = screen !== "rsvp";
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
 
 const asNumber = (value) => Math.max(0, Number.parseInt(value || "0", 10) || 0);
 const valueOf = (name) => new FormData(form).get(name)?.toString().trim() || "";
@@ -235,6 +245,15 @@ document.querySelector("#edit-button").addEventListener("click", () => {
   renderStep();
 });
 
+document.querySelector("#open-invitation").addEventListener("click", () => showScreen("invitation"));
+document.querySelector("#back-to-welcome").addEventListener("click", () => showScreen("welcome"));
+document.querySelector("#start-rsvp").addEventListener("click", () => {
+  showScreen("rsvp");
+  currentStep = 1;
+  renderStep();
+});
+document.querySelector("#back-to-invitation").addEventListener("click", () => showScreen("invitation"));
+
 async function boot() {
   try {
     if (window.RSVP_CONFIG?.mode === "supabase") await loadRemoteEdit();
@@ -242,6 +261,7 @@ async function boot() {
   } catch (error) {
     showError(error.message || "We could not load this RSVP.");
   }
+  showScreen(currentToken ? "rsvp" : "welcome");
   renderStep();
 }
 
