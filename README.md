@@ -41,9 +41,15 @@ The organizer endpoint verifies the Supabase Auth access token server-side and c
 - All site asset links are relative, so the site works under `/gruhapravesha-rsvp/`.
 - Do not enable Pages until `config.js` points to a deployed function and the organizer page is either secured or excluded from publication.
 
+## Selected visual direction
+
+- Botanical South Indian theme without Kannada text
+- Ivory and sage palette with muted brass-gold accents
+- Code-native banana leaf, jasmine, marigold, lamp, and subtle botanical watermark assets
+- Decorations remain separate from functional form controls and adapt for mobile screens
+
 ## Still intentionally undecided
 
-- Final arch, mandala, or blended visual treatment
 - Host/family names
 - Breakfast and lunch serving times
 - RSVP deadline

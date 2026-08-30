@@ -1,4 +1,5 @@
 window.RSVP_CONFIG = {
+  theme: "botanical-south-indian",
   // "local" keeps prototype responses in this browser. Change to "supabase" after deployment.
   mode: "supabase",
   // Example: https://YOUR_PROJECT_REF.supabase.co/functions/v1/rsvp

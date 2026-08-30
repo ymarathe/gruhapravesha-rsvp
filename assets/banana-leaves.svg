@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 360">
+  <defs>
+    <linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#314b2c"/>
+      <stop offset=".5" stop-color="#70885d"/>
+      <stop offset="1" stop-color="#9eae82"/>
+    </linearGradient>
+    <filter id="soft"><feTurbulence baseFrequency=".018" numOctaves="2" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2"/></filter>
+  </defs>
+  <g fill="none" stroke="#5d7450" stroke-linecap="round" opacity=".88">
+    <path d="M18 5c56 68 88 148 106 260" stroke-width="5"/>
+    <path d="M42 28c47 16 83 45 100 88-51 5-90-13-118-62z" fill="url(#leaf)" stroke-width="2" filter="url(#soft)"/>
+    <path d="M88 95c55 6 100 30 130 74-52 18-105 5-143-39z" fill="url(#leaf)" stroke-width="2" filter="url(#soft)"/>
+    <path d="M112 174c56-2 105 16 141 55-48 25-100 21-144-13z" fill="url(#leaf)" stroke-width="2" filter="url(#soft)"/>
+    <path d="M16 65c-1 44 14 79 47 105 18-43 9-83-27-119z" fill="url(#leaf)" stroke-width="2" filter="url(#soft)"/>
+    <path d="M48 151c-2 48 16 86 53 113 20-48 9-90-31-126z" fill="url(#leaf)" stroke-width="2" filter="url(#soft)"/>
+  </g>
+  <g fill="#d79b27">
+    <circle cx="116" cy="278" r="10"/><circle cx="116" cy="298" r="9"/><circle cx="116" cy="316" r="8"/>
+  </g>
+  <path d="M116 256v67" stroke="#967329" stroke-width="2"/>
+</svg>

@@ -106,7 +106,7 @@ input, textarea {
   outline: none;
 }
 input:focus, textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(157,85,56,.11); }
-.field-note { margin: -10px 0 0; color: var(--muted); font-size: .86rem; }
+.field-note { margin: 12px 0 0; color: var(--muted); font-size: .86rem; line-height: 1.45; }
 .section-copy { margin-bottom: 25px; }
 .count-field { display: grid; gap: 8px; font-weight: 600; }
 .count-field input { font-size: 1.15rem; }
@@ -145,4 +145,110 @@ footer { padding: 28px 12px 56px; color: var(--muted); font-size: .84rem; text-a
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
+}
+
+/* Botanical South Indian theme — decorative only; RSVP structure stays shared. */
+.theme-botanical {
+  --canvas: #f3f1e7;
+  --surface: rgba(255, 254, 247, 0.94);
+  --ink: #263022;
+  --muted: #667061;
+  --accent: #586b45;
+  --accent-dark: #36492e;
+  --gold: #b28a35;
+  --line: #d9d7c3;
+  --success: #48664d;
+  --shadow: 0 26px 74px rgba(53, 68, 43, 0.13);
+  background:
+    radial-gradient(ellipse at 0% 2%, rgba(106, 129, 83, .13), transparent 25rem),
+    radial-gradient(ellipse at 100% 75%, rgba(196, 157, 57, .08), transparent 24rem),
+    linear-gradient(180deg, #f6f3e9 0%, #eff2e7 100%);
+  background-attachment: fixed;
+}
+
+.theme-botanical .event-header {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 410px;
+  padding-top: 82px;
+}
+
+.theme-botanical .event-header::before,
+.theme-botanical .event-header::after {
+  position: absolute;
+  z-index: -1;
+  content: "";
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.theme-botanical .event-header::before {
+  top: -12px;
+  left: -74px;
+  width: clamp(230px, 38vw, 330px);
+  height: 330px;
+  background-image: url("assets/banana-leaves.svg");
+  transform: rotate(-4deg);
+}
+
+.theme-botanical .event-header::after {
+  top: 18px;
+  right: -36px;
+  width: clamp(145px, 25vw, 210px);
+  height: 270px;
+  background-image: url("assets/jasmine-sprig.svg");
+  opacity: .92;
+}
+
+.theme-botanical .event-header h1 {
+  color: var(--accent-dark);
+  text-shadow: 0 1px 0 rgba(255,255,255,.7);
+}
+
+.theme-botanical .event-header .eyebrow {
+  color: var(--gold);
+}
+
+.lamp-ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  margin: 20px auto 15px;
+}
+
+.lamp-ornament img { width: 40px; height: 54px; }
+.lamp-ornament span { width: 62px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold)); }
+.lamp-ornament span:last-child { background: linear-gradient(90deg, var(--gold), transparent); }
+
+.theme-botanical .rsvp-card {
+  border-color: rgba(178, 138, 53, .42);
+  background:
+    linear-gradient(rgba(255,254,247,.955), rgba(255,254,247,.955)),
+    url("assets/botanical-watermark.svg") center 24% / 520px auto no-repeat;
+}
+
+.theme-botanical .rsvp-card::before { border-color: rgba(88,107,69,.13); }
+.theme-botanical .progress span { background: linear-gradient(90deg, var(--accent-dark), #789066); }
+.theme-botanical .button-primary { background: var(--accent); box-shadow: 0 6px 16px rgba(54,73,46,.16); }
+.theme-botanical .button-primary:hover { background: var(--accent-dark); }
+.theme-botanical .choice-card:has(input:checked) { background: rgba(88,107,69,.065); }
+.theme-botanical .segmented input:checked + span { background: var(--accent); }
+
+.theme-botanical footer::before {
+  display: block;
+  width: 70px;
+  height: 10px;
+  margin: 0 auto 16px;
+  border-top: 1px solid rgba(178,138,53,.55);
+  content: "";
+}
+
+@media (max-width: 620px) {
+  .theme-botanical .event-header { min-height: 385px; padding-top: 70px; }
+  .theme-botanical .event-header::before { left: -118px; opacity: .76; }
+  .theme-botanical .event-header::after { right: -90px; opacity: .58; }
+  .lamp-ornament span { width: 42px; }
 }
