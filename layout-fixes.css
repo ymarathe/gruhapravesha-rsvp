@@ -1,0 +1,64 @@
+/* Final layout overrides. Loaded last so theme and responsive rules cannot undo them. */
+.theme-botanical .event-header {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 390px;
+  margin: 54px 0 34px;
+  padding: 66px 155px 48px;
+  border: 1px solid rgba(178,138,53,.38);
+  border-radius: 26px;
+  background:
+    linear-gradient(rgba(255,254,247,.88), rgba(255,254,247,.88)),
+    url("assets/botanical-watermark.svg?v=20260830-4") center / 420px auto no-repeat;
+  box-shadow: 0 18px 54px rgba(53,68,43,.09);
+}
+
+.theme-botanical .event-header::before,
+.theme-botanical .event-header::after { display: none; }
+.rsvp-banner-content { position: relative; z-index: 2; }
+.rsvp-banner-leaves,
+.rsvp-banner-jasmine {
+  position: absolute;
+  z-index: 1;
+  display: block;
+  object-fit: contain;
+  pointer-events: none;
+}
+.rsvp-banner-leaves { top: 24px; left: 14px; width: 180px; height: 180px; }
+.rsvp-banner-jasmine { top: 20px; right: 18px; width: 130px; height: 184px; }
+
+input[type="radio"] {
+  width: 18px !important;
+  min-width: 18px;
+  max-width: 18px;
+  height: 18px !important;
+  margin: 2px 0 0;
+  padding: 0;
+  accent-color: var(--accent);
+  box-shadow: none;
+}
+.choice-card {
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+  min-height: 82px;
+  padding: 18px 20px;
+  text-align: left;
+}
+.choice-card > span { min-width: 0; text-align: left; }
+.choice-card strong { line-height: 1.35; }
+.choice-card small { max-width: 42ch; line-height: 1.45; }
+
+@media (max-width: 620px) {
+  .theme-botanical .event-header {
+    min-height: 360px;
+    margin-top: 38px;
+    padding: 72px 56px 42px;
+    border-radius: 20px;
+  }
+  .rsvp-banner-leaves { top: 15px; left: 8px; width: 112px; height: 112px; opacity: .76; }
+  .rsvp-banner-jasmine { top: 17px; right: 8px; width: 82px; height: 116px; opacity: .8; }
+  .choice-card { min-height: 78px; padding: 16px; }
+}
