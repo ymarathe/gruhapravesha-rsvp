@@ -62,3 +62,31 @@ input[type="radio"] {
   .rsvp-banner-jasmine { top: 17px; right: 8px; width: 82px; height: 116px; opacity: .8; }
   .choice-card { min-height: 78px; padding: 16px; }
 }
+
+/* Keep the complete welcome composition inside every viewport. */
+.welcome-content { width: min(100%, 720px); }
+.welcome-content h1 {
+  max-width: 100%;
+  font-size: min(8vw, 4.3rem);
+  line-height: 1.08;
+  letter-spacing: -.035em;
+  white-space: nowrap;
+}
+.welcome-leaves {
+  top: 24px;
+  left: 18px;
+  width: min(30vw, 230px);
+  height: auto;
+}
+.welcome-jasmine {
+  right: 18px;
+  bottom: 24px;
+  width: min(20vw, 155px);
+  height: auto;
+}
+
+@media (max-width: 560px) {
+  .welcome-content h1 { font-size: 8vw; letter-spacing: -.045em; }
+  .welcome-leaves { top: 18px; left: 10px; width: 128px; opacity: .66; }
+  .welcome-jasmine { right: 10px; bottom: 18px; width: 92px; opacity: .68; }
+}
