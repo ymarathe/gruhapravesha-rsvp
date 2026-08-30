@@ -90,3 +90,132 @@ input[type="radio"] {
   .welcome-leaves { top: 18px; left: 10px; width: 128px; opacity: .66; }
   .welcome-jasmine { right: 10px; bottom: 18px; width: 92px; opacity: .68; }
 }
+
+/* Final welcome composition: a bounded 4:5 invitation, never a viewport canvas. */
+.welcome-screen {
+  display: grid;
+  min-height: 100svh;
+  padding: 24px 0;
+  place-items: center;
+  overflow: visible;
+}
+
+.welcome-card {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  width: min(100%, 680px);
+  aspect-ratio: 4 / 5;
+  place-items: center;
+  overflow: hidden;
+  padding: clamp(34px, 7vw, 72px);
+  border: 1px solid rgba(178,138,53,.5);
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at center, rgba(255,254,247,.98) 0 36%, rgba(255,254,247,.82) 58%, rgba(244,245,233,.82) 100%),
+    url("assets/botanical-watermark.svg?v=20260830-6") center / 88% auto no-repeat;
+  box-shadow: 0 28px 80px rgba(53,68,43,.14);
+}
+
+.welcome-card::before {
+  position: absolute;
+  z-index: 3;
+  inset: 13px;
+  border: 1px solid rgba(88,107,69,.18);
+  border-radius: 18px;
+  content: "";
+  pointer-events: none;
+}
+.welcome-card::after {
+  position: absolute;
+  z-index: 0;
+  inset: 25px;
+  border: 1px solid rgba(178,138,53,.13);
+  border-radius: 12px;
+  content: "";
+  pointer-events: none;
+}
+
+.welcome-card .welcome-content {
+  position: relative;
+  z-index: 4;
+  width: min(100%, 560px);
+  padding: 34px 0;
+}
+.welcome-card .welcome-content h1 {
+  max-width: 100%;
+  font-size: clamp(2.55rem, 7.3vw, 4.75rem);
+  line-height: 1.06;
+  letter-spacing: -.045em;
+  white-space: nowrap;
+}
+.welcome-card .welcome-subtitle { margin-top: 18px; }
+.welcome-card .welcome-lamp {
+  width: 58px !important;
+  max-width: 58px;
+  height: 78px !important;
+  max-height: 78px;
+  margin: 27px auto 15px;
+}
+.welcome-card .welcome-date { margin-bottom: 30px; }
+
+.welcome-card .welcome-leaves,
+.welcome-leaves-secondary,
+.welcome-card .welcome-jasmine,
+.welcome-jasmine-secondary {
+  position: absolute;
+  z-index: 1;
+  display: block;
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
+}
+.welcome-card .welcome-leaves-primary {
+  top: -5%;
+  left: -3%;
+  width: 47%;
+  opacity: .94;
+}
+.welcome-leaves-secondary {
+  top: -7%;
+  right: -2%;
+  width: 38%;
+  opacity: .66;
+  transform: scaleX(-1) rotate(-8deg);
+}
+.welcome-card .welcome-jasmine-primary {
+  right: 2%;
+  bottom: -2%;
+  width: 25%;
+  opacity: .94;
+}
+.welcome-jasmine-secondary {
+  bottom: 2%;
+  left: 3%;
+  width: 18%;
+  opacity: .68;
+  transform: scaleX(-1) rotate(-8deg);
+}
+
+@media (max-width: 720px) {
+  .welcome-screen { min-height: auto; padding: 10px 0 24px; }
+  .welcome-card {
+    width: 100%;
+    min-height: 0;
+    padding: 28px 22px;
+    border-radius: 20px;
+  }
+  .welcome-card::before { inset: 9px; border-radius: 14px; }
+  .welcome-card::after { inset: 18px; }
+  .welcome-card .welcome-content { padding: 24px 0; }
+  .welcome-card .welcome-content h1 { font-size: 8.4vw; }
+  .welcome-card .welcome-leaves-primary { top: -3%; left: -2%; width: 45%; }
+  .welcome-leaves-secondary { top: -4%; right: -2%; width: 35%; }
+  .welcome-card .welcome-jasmine-primary { right: 1%; bottom: -1%; width: 24%; }
+  .welcome-jasmine-secondary { bottom: 2%; left: 3%; width: 17%; }
+}
+
+@media (max-height: 520px) and (orientation: landscape) {
+  .welcome-screen { display: block; min-height: 0; padding: 16px 0; }
+  .welcome-card { width: min(76vh, 560px); margin: 0 auto; }
+}
