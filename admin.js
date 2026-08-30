@@ -48,7 +48,9 @@ async function signIn(email, password) {
 
 async function loadProductionRecords(token) {
   if (!config.adminFunctionUrl) throw new Error("Organizer endpoint is not configured.");
-  const response = await fetch(config.adminFunctionUrl, { headers: { "Authorization": `Bearer ${token}` } });
+  const response = await fetch(config.adminFunctionUrl, {
+    headers: { "Authorization": `Bearer ${token}`, "apikey": config.publishableKey },
+  });
   if (response.status === 401 || response.status === 403) {
     sessionStorage.removeItem("organizerAccessToken");
     showLogin();

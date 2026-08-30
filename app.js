@@ -133,7 +133,7 @@ async function saveRsvp(data) {
   if (config.mode === "supabase") {
     const response = await fetch(config.functionUrl, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json", "apikey": config.publishableKey },
       body: JSON.stringify({ ...data, editToken: currentToken })
     });
     if (!response.ok) throw new Error("We could not save your RSVP. Please try again.");
@@ -151,7 +151,9 @@ async function saveRsvp(data) {
 async function loadRemoteEdit() {
   const config = window.RSVP_CONFIG || { mode: "local" };
   if (!currentToken || config.mode !== "supabase" || !config.functionUrl) return;
-  const response = await fetch(`${config.functionUrl}?token=${encodeURIComponent(currentToken)}`);
+  const response = await fetch(`${config.functionUrl}?token=${encodeURIComponent(currentToken)}`, {
+    headers: { "apikey": config.publishableKey },
+  });
   if (!response.ok) throw new Error("This edit link is invalid or has expired.");
   const record = await response.json();
   hydrateForm(record);

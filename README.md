@@ -20,7 +20,7 @@ Style-independent RSVP prototype for the September 12, 2026 Gruhapravesha celebr
 ## Production connection
 
 1. Create the Supabase project.
-2. Apply `supabase/schema.sql`.
+2. Apply the versioned migration with `supabase db push` (the readable source is also retained at `supabase/schema.sql`).
 3. Replace the placeholder `project_id` in `supabase/config.toml` with the project reference.
 4. Set the function secret `ALLOWED_ORIGINS=https://ymarathe.github.io`.
 5. Deploy `supabase/functions/rsvp` with JWT verification disabled; the function performs its own origin and edit-token checks.

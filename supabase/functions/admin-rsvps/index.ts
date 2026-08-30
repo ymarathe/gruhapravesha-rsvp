@@ -10,7 +10,7 @@ function headers(origin: string | null) {
   return {
     "Content-Type": "application/json",
     "Access-Control-Allow-Origin": allowed,
-    "Access-Control-Allow-Headers": "authorization, content-type",
+    "Access-Control-Allow-Headers": "apikey, authorization, content-type",
     "Access-Control-Allow-Methods": "GET, OPTIONS",
     "Cache-Control": "no-store",
     "Vary": "Origin",
